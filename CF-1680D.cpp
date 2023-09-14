@@ -7,8 +7,8 @@ const int maxn = 3e3 + 5;
 int n; LL mxk, a[maxn], det[maxn], c[maxn];
 
 int main() {
-    freopen("test.in", "r", stdin);
-    freopen("test.out", "w", stdout);
+    // freopen("test.in", "r", stdin);
+    // freopen("test.out", "w", stdout);
     scanf("%d%lld", &n, &mxk);
     for (int i = 1; i <= n; i++) {
         scanf("%lld", &a[i]);
@@ -21,9 +21,12 @@ int main() {
     }
     LL ans = 0;
     for (int i = 1; i <= n; i++)
-        for (int j = i + 1; j <= n; j++) {
-            
+        for (int j = i; j <= n; j++) {
+            LL sp = det[j] - det[i - 1], sc = c[j] - c[i - 1];
+            LL rdet = det[n] - sp, rc = c[n] - sc;
+            ans = max(ans, min(abs(sp + sc * mxk), abs(rdet - rc * mxk)));
+            ans = max(ans, min(abs(sp - sc * mxk), abs(rdet + rc * mxk)));
         }
-    printf("%lld\n", ans);
+    printf("%lld\n", ans + 1);
     return 0;
 }
