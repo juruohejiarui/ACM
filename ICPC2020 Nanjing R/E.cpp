@@ -23,8 +23,8 @@ bool solve() {
     return true;
 }
 int main() {
-    // freopen("test.in", "r", stdin);
-    // freopen("test.out", "w", stdout);
+    freopen("test.in", "r", stdin);
+    freopen("test.out", "w", stdout);
     int T; scanf("%d", &T);
     while (T--) {
         scanf("%d%d\n%s\n", &mx, &my, ls + 1);
