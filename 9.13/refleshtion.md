@@ -48,7 +48,6 @@ f(u,1) &= \min\begin{cases}
     w_u
 \end{cases}\\
 \mathrm{ans}&=\max_{u=1}^n\{f(u,0)-f(u,1)\}
-
 \end{aligned}
 $$
 
