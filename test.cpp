@@ -1,12 +1,8 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-int fib(int n) {
-    printf("f(%d)", n);
-    return fib(n - 1) * fib(n - 2);
-}
 int main() {
-    fib(100);
+    double a = 31.14;
+    printf("%1lf", a);
     return 0;
 }
