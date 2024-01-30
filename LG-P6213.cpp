@@ -13,12 +13,12 @@ void addedge(int u, int v, int w) {
     E[++tote] = Edge(u, w, hd[v]), hd[v] = tote;
 }
 int rt, mxc[maxn], cnt[maxn], vl[maxn], f[maxn], h[maxn], w[maxn], g[maxn], lst[maxn];
-struct Note {
+struct Point {
     int v, vl;
-    Note(int v, int vl) : v(v), vl(vl) {}
-    friend bool operator < (Note a, Note b) { return a.vl < b.vl; }
+    Point(int v, int vl) : v(v), vl(vl) {}
+    friend bool operator < (Point a, Point b) { return a.vl < b.vl; }
 };
-priority_queue<Note> pq;
+priority_queue<Point> pq;
 set<int> src[maxn];
 
 void dfs1(int u, int fa) {
@@ -32,7 +32,7 @@ void dfs1(int u, int fa) {
     for (int i = hd[u]; i; i = E[i].nex) {
         int v = E[i].v;
         if (v == fa) continue;
-        pq.push(Note(v, w[v] = h[v] + E[i].w));
+        pq.push(Point(v, w[v] = h[v] + E[i].w));
     }
     for (; cnt[u] < mxc[u] - 2 && !pq.empty(); cnt[u]++, pq.pop())
         f[u] += pq.top().vl, src[u].insert(pq.top().v);

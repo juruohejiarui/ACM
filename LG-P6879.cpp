@@ -6,9 +6,9 @@ typedef long long LL;
 const int maxn = 2e2 + 5;
 const LL INF = 2e9;
 int n, L;
-struct Note {
+struct Point {
     int p, t;
-    friend bool operator < (Note a, Note b) {
+    friend bool operator < (Point a, Point b) {
         return a.p < b.p;
     }
 } a[maxn];
