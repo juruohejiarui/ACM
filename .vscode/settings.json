@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.h": "c",
         "unordered_map": "cpp",
         "cstdio": "cpp",
         "regex": "cpp",
@@ -10,6 +11,7 @@
         "forward_list": "cpp",
         "list": "cpp",
         "memory": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "sstream": "cpp"
     }
 }
