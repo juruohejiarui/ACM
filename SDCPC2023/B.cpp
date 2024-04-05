@@ -25,18 +25,20 @@ vector< pair<int, LL> > awrd[maxn];
 LL initT[maxn], initN[maxn];
 
 int main() {
-    freopen("test.in", "r", stdin);
-    freopen("test.out", "w", stdout);
+    // freopen("test.in", "r", stdin);
+    // freopen("test.out", "w", stdout);
     int n, m;
-    scanf("%d%d", &n, &m);
+    scanf("%d", &n);
     for (int i = 1; i <= n; i++) 
         scanf("%lld%lld", &initT[i], &initN[i]), initT[i] = gettid(initT[i]);
+    scanf("%d", &m);
     for (int i = 1; i <= m; i++) {
         int sz, a; LL b;
         scanf("%d", &sz), reqC[i] = sz;
         for (int j = 0; j < sz; j++) 
             scanf("%d%lld", &a, &b), a = gettid(a),
             req[a].push_back(make_pair(b, i));
+        if (!sz) stfQ.push(i);
         scanf("%d", &sz), awrd[i].resize(sz);
         for (int j = 0; j < sz; j++) scanf("%d%lld", &a, &b), awrd[i][j] = make_pair(gettid(a), b);
     }
@@ -45,7 +47,6 @@ int main() {
     int ans = 0;
     while (!stfQ.empty()) {
         int cmpy = stfQ.front(); stfQ.pop(), ans++;
-        printf("%d\n", cmpy);
         for (auto &pir : awrd[cmpy]) upd(pir.first, pir.second);
     }
     printf("%d\n", ans);
